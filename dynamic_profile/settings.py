@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -59,6 +60,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Use dummy database during runtime (not during migrations)
+if 'migrate' not in sys.argv and 'makemigrations' not in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.dummy'
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'

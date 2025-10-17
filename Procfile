@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn dynamic_profile.wsgi:application --bind 0.0.0.0:$PORT
+web: gunicorn dynamic_profile.wsgi:application --bind 0.0.0.0:$PORT
