@@ -11,7 +11,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-key-for-dev')
 
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1', 'dynamic-profile-api-production-52f5.up.railway.app',
+    '*.railway.app').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
